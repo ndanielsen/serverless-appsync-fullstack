@@ -18,8 +18,10 @@
     "bluebird": "^3.5.1",
     "node-fetch": "^2.0.0",
     "oauth": "^0.9.15",
-    "serverless-appsync-plugin": "^0.0.5",
-    "serverless-dynamodb-local": "^0.2.27",
+    "serverless-appsync-plugin": "^1.1.2",
+    "serverless-dynamodb-local": "^0.2.38",
+    "serverless-pseudo-parameters": "^2.5.0",
+    "serverless-stack-output": "^0.2.3",
     "twitter": "^1.7.1"
   },
   "devDependencies": {

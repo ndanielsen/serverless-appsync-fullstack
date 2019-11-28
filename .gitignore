@@ -15,3 +15,5 @@ ESUsers.json
 
 # vim
 *.swp
+*.env
+stack.toml
