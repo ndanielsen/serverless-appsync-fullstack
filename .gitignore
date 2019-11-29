@@ -17,3 +17,5 @@ ESUsers.json
 *.swp
 *.env
 stack.toml
+
+aws-exports.js

@@ -1,5 +1,6 @@
 import React from 'react';
-import Amplify, { Auth } from 'aws-amplify';
+
+import API from '@aws-amplify/api';
 import { withAuthenticator } from 'aws-amplify-react/dist/Auth';
 import AWSAppSyncClient from 'aws-appsync';
 import { Rehydrated } from 'aws-appsync-react';
@@ -12,13 +13,9 @@ import Profile from './routes/Profile';
 import Search from './routes/Search';
 import { Footer } from './components/helpers';
 
-Amplify.configure({
-  Auth: {
-    region: process.env.REACT_APP_AWS_AUTH_REGION, // REQUIRED - Amazon Cognito Region
-    userPoolId: process.env.REACT_APP_USER_POOL_ID, // OPTIONAL - Amazon Cognito User Pool ID
-    userPoolWebClientId: process.env.REACT_APP_CLIENT_APP_ID, // User Pool App Client ID
-  },
-});
+import awsconfig from './aws-exports';
+
+API.configure(awsconfig);
 
 const client = new AWSAppSyncClient({
   url: process.env.REACT_APP_GRAPHQL_ENDPOINT,

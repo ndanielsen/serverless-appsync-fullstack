@@ -4,14 +4,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "apollo-client": "^2.2.0",
+    "apollo-client": "^2.6.4",
     "apollo-client-preset": "^1.0.6",
-    "apollo-link": "^1.0.7",
-    "aws-amplify": "^0.1.36",
-    "aws-amplify-react": "^0.1.31",
-    "aws-appsync": "^1.0.6",
-    "aws-appsync-react": "^1.0.4",
-    "aws-sdk": "^2.184.0",
+    "apollo-link": "^1.2.13",
+    "aws-amplify": "^1.2.4",
+    "aws-amplify-react": "^2.5.4",
+    "aws-appsync": "^3.0.2",
+    "aws-appsync-react": "^3.0.2",
+    "aws-sdk": "^2.580.0",
     "graphql": "^0.12.3",
     "graphql-anywhere": "^4.1.1",
     "graphql-tag": "^2.6.1",
@@ -31,7 +31,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy-s3": "yarn build && serverless client deploy",
-    "deploy-netlify": "yarn build && netlify deploy build"
+    "deploy-netlify": "yarn build && netlify deploy build",
+    "codegen": "amplify codegen"
   },
   "devDependencies": {
     "env-cmd": "^7.0.0",

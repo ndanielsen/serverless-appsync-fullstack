@@ -20,13 +20,10 @@ custom:
   region: ${env:AWS_REGION, 'us-west-2'}
   stage: ${opt:stage, self:provider.stage}
   amplify:
-    - filename: ../appsync-client/src/awsconfiguration.json
-      type: javascript
-      appClient: CognitoUserPoolClient
-      s3bucket: UserFiles
     - filename: ../appsync-client/src/aws-exports.js
       type: javascript
       appClient: CognitoUserPoolClient
+      s3bucket: UserFiles
     - filename: ../appsync-client/schema.json
       type: schema.json
     - filename: ../appsync-client/operations.graphql
