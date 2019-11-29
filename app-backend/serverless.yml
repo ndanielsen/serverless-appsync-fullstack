@@ -13,14 +13,24 @@ plugins:
   - serverless-appsync-plugin
   - serverless-webpack
   - serverless-stack-output
+  - aws-amplify-serverless-plugin
 
 
 custom:
   region: ${env:AWS_REGION, 'us-west-2'}
   stage: ${opt:stage, self:provider.stage}
-  output:
-    handler: scripts/output.handler # Same syntax as you already know
-    file: stack.toml # toml, yaml, yml, and json format is available
+  amplify:
+    - filename: ../appsync-client/src/awsconfiguration.json
+      type: javascript
+      appClient: CognitoUserPoolClient
+      s3bucket: UserFiles
+    - filename: ../appsync-client/src/aws-exports.js
+      type: javascript
+      appClient: CognitoUserPoolClient
+    - filename: ../appsync-client/schema.json
+      type: schema.json
+    - filename: ../appsync-client/operations.graphql
+      type: graphql
 
   dynamodb:
     start:
@@ -93,9 +103,7 @@ resources:
           -
             AttributeName: handle
             AttributeType: S
-        ProvisionedThroughput:
-          ReadCapacityUnits: 10
-          WriteCapacityUnits: 10
+        BillingMode: PAY_PER_REQUEST
         TableName: 'ESUsers'
 
     AppSyncDynamoDBServiceRole:
